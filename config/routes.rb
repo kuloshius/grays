@@ -1,13 +1,13 @@
 Grays::Application.routes.draw do
   get "pages/home"
-
   get "pages/contact"
+  get "pages/about"
 
   devise_for :users
 
 #  match '/user' => 'users#index', :controller => :users
 
-root :to => 'users#index'
+
 
   get "accounts/index"
 
