@@ -1,21 +1,23 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.5'
 gem 'mysql2'
 gem 'jquery-rails', '>=0.2.6'
 gem 'acts_as_audited', '2.0.0.rc7'
+gem 'devise'
+gem 'cancan'
 #pagination?
 #search?
 #autotest
 
 group :development do
-  gem 'rspec-rails', '2.3.0'
+  gem 'rspec-rails', '2.5.0'
   gem 'annotate-models', '1.0.4'
   gem 'faker', '0.3.1'
 end
 
 group :test do
-  gem 'rspec', '2.3.0'
+  gem 'rspec', '2.5.0'
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '1.0'
 end

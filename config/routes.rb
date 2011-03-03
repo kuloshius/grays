@@ -1,4 +1,28 @@
 Grays::Application.routes.draw do
+  get "pages/home"
+
+  get "pages/contact"
+
+  devise_for :users
+
+#  match '/user' => 'users#index', :controller => :users
+
+root :to => 'users#index'
+
+  get "accounts/index"
+
+  get "accounts/show"
+
+  get "accounts/new"
+
+  get "accounts/create"
+
+  get "accounts/edit"
+
+  get "accounts/update"
+
+  get "accounts/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
