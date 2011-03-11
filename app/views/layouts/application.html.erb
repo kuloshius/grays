@@ -3,14 +3,25 @@
   <head>
     <title><%= title %></title>
     <%= csrf_meta_tag %>
-    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-    <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+    <%= render "layouts/stylesheets" %>
     <%= javascript_include_tag :defaults %>
   </head>
   <body>
+    <div id="maincontent">
 
+            <%= yield %>
 
-  <%= yield %>
+    </div>
+    <div id="framecontentTop">
+        <%= render "layouts/header" %>
+    </div>
+    <div id="framecontentLeft">
+        <%= render "layouts/menu/layout" %>
+    </div>
+    <div id="framecontentRight">
+        this is right_section
+    </div>
+
 
   </body>
 </html>

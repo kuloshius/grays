@@ -1,0 +1,50 @@
+/* Layout */
+body {
+  background: #D3E0BB;
+}
+
+div#framecontentTop, div#framecontentLeft, div#framecontentRight, div#maincontent {
+
+    overflow: hidden;
+    position: absolute;
+}
+div#framecontentTop {
+    left: 0;
+    border-bottom: 1px solid #AFBB99;
+    height: 4em;
+    top: 0;
+    width: 100%;
+}
+div#framecontentLeft {
+    left: 0;
+    border-right: 1px solid #AFBB99;
+    bottom: 0;
+    margin: 0;
+    top: 4em;
+    width: 15em;
+}
+div#framecontentRight {
+    right: 0;
+    border-left: 1px solid #AFBB99;
+    bottom: 0;
+    margin: 0;
+    top: 4em;
+    width: 15em;
+}
+div#maincontent {
+    padding: 0.5em;
+    right: 15em;
+    top: 4em;
+    left: 15em;
+    bottom: 0;
+    margin: 0;
+    overflow: auto;
+    white-space: nowrap
+}
+body > div#framecontentTop, body > div#framecontentLeft, body > div#framecontentRight, body > div#maincontent {
+    position: fixed;
+}
+#framecontentTop nav {
+  float: right;
+}
+
