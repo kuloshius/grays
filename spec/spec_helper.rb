@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'macros'
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -14,6 +15,9 @@ Spork.prefork do
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
   RSpec.configure do |config|
+
+    config.include Devise::TestHelpers, :type => :controller
+    config.extend Macros, :type => :controller
     # == Mock Framework
     #
     # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -32,6 +36,6 @@ Spork.prefork do
   end
 end
 Spork.each_run do
-  # This code will be run each time you run your specs.
 
+  # This code will be run each time you run your specs.
 end

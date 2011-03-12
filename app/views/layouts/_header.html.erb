@@ -1,9 +1,13 @@
 <a>
-  <%= image_tag("logo.png", :alt => "#{app_name}", :class => "round", :height => "100%") %>
+  <% logo = image_tag("logo.png", :alt => "#{app_name}", :class => "round", :height => "100%") %>
+  <%= link_to logo, root_path %>
 </a>
 <nav>
   <ul>
-    <li><%= link_to "Home", '#' %></li>
-    <li><%= link_to "Sign out", '#' %></li>
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "About", about_path %></li>
+    <li><%= link_to "Contact", contact_path %></li>
+    <li><%= link_to "Help", help_path %></li>
+    <li><%= link_to "Sign out", destroy_user_session_path %></li>
   </ul>
 </nav>

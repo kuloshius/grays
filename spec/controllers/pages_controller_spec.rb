@@ -4,6 +4,8 @@ describe PagesController do
   #this line is for rendering views inside controller. Without it rspec would test only controller actions. This ensures that if the test passes, the page is really there
   render_views
 
+  login
+
   before(:each) do
     @base_title = "SLP | "
   end

@@ -44,7 +44,37 @@ div#maincontent {
 body > div#framecontentTop, body > div#framecontentLeft, body > div#framecontentRight, body > div#maincontent {
     position: fixed;
 }
+
+/* Navigation */
+
 #framecontentTop nav {
   float: right;
+}
+
+#framecontentTop nav {
+  background-color: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
+#framecontentTop nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+#framecontentTop nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+#framecontentTop nav ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#framecontentTop nav ul li a:hover {
+  text-decoration: underline;
 }
 

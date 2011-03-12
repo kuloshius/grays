@@ -12,15 +12,17 @@
             <%= yield %>
 
     </div>
-    <div id="framecontentTop">
-        <%= render "layouts/header" %>
-    </div>
-    <div id="framecontentLeft">
-        <%= render "layouts/menu/layout" %>
-    </div>
-    <div id="framecontentRight">
-        this is right_section
-    </div>
+    <% if user_signed_in? %>
+      <div id="framecontentTop">
+          <%= render "layouts/header" %>
+      </div>
+      <div id="framecontentLeft">
+          <%= render "layouts/menu/layout" %>
+      </div>
+      <div id="framecontentRight">
+          this is right_section
+      </div>
+    <% end %>
 
 
   </body>
