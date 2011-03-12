@@ -5,7 +5,7 @@ describe PagesController do
   render_views
 
   before(:each) do
-    @base_title = "No name app | "
+    @base_title = "SLP | "
   end
 
   describe "GET 'home'" do
@@ -52,7 +52,7 @@ describe PagesController do
 
     it "should have the right title" do
       get 'help'
-      response.should have_selector("title", :content => "No name app | Help")
+      response.should have_selector("title", :content => @base_title + "Help")
     end
   end
 end
