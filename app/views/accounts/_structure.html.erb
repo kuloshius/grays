@@ -1,0 +1,31 @@
+<div class="structure">
+<% unless object.children.empty? %>
+<div class="children">
+  <%= render 'list', :object => object.children %>
+</div>
+<% end %>
+<% unless object.parent.nil? %>
+<div class="parent">
+<table>
+  <tr>
+    <td>
+      <p>
+        Account:<br/>
+        <%= object.parent.reference %><br/>
+        <%= link_to "#{object.parent.name}", account_path(object.parent) %>
+      </p>
+    </td>
+    <td>
+      <%= render 'address', :object => object.parent %>
+    </td>
+    <td>
+      <%= render 'contact', :object => object.parent %>
+    </td>
+    <td>
+    <%= render 'credit_control', :object => object.parent %>
+    </td>
+  </tr>
+</table>
+</div>
+<% end %>
+</div>
