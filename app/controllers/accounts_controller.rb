@@ -1,10 +1,11 @@
 class AccountsController < ApplicationController
   def index
-    @accounts = Account.all
+    @accounts = Account.all(:order => 'name')
   end
 
   def show
     @account = Account.find(params[:id])
+    @children = @account.children
   end
 
   def new

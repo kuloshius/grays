@@ -1,2 +1,9 @@
-<h1>Accounts#show</h1>
-<p>Find me in app/views/accounts/show.html.erb</p>
+<div class="name">
+<h1><%= @account.name %></h1>
+<p>Account reference: <%= @account.reference %></p>
+</div>
+<%= render 'address', :object => @account %>
+<%= render 'contact', :object => @account %>
+<%= render 'credit_control', :object => @account %>
+<%= render 'list', :object => @children %>
+</div>

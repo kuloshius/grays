@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110302220336
+# Schema version: 20110313131115
 #
 # Table name: users
 #
@@ -20,13 +20,16 @@
 #  confirmation_sent_at :datetime
 #  created_at           :datetime
 #  updated_at           :datetime
+#  preferences          :string(255)
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable and :timeoutable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  devise :database_authenticatable, :recoverable, :rememberable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  serialize :preferences
 end

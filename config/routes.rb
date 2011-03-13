@@ -10,21 +10,7 @@ Grays::Application.routes.draw do
 
 #  match '/user' => 'users#index', :controller => :users
 
-
-
-  get "accounts/index"
-
-  get "accounts/show"
-
-  get "accounts/new"
-
-  get "accounts/create"
-
-  get "accounts/edit"
-
-  get "accounts/update"
-
-  get "accounts/destroy"
+  resources :accounts
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

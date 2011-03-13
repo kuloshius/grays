@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110302220336) do
+ActiveRecord::Schema.define(:version => 20110313200324) do
 
   create_table "accounts", :force => true do |t|
     t.string   "reference",                                    :null => false
@@ -19,20 +19,20 @@ ActiveRecord::Schema.define(:version => 20110302220336) do
     t.string   "city"
     t.string   "county"
     t.string   "postcode"
-    t.integer  "status_id"
     t.integer  "account_id"
     t.decimal  "credit_limit",  :precision => 11, :scale => 2
     t.integer  "payment_delay"
     t.boolean  "in_advance"
-    t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "fax"
   end
 
   add_index "accounts", ["account_id"], :name => "parent_ix"
   add_index "accounts", ["reference"], :name => "reference_ix", :unique => true
-  add_index "accounts", ["status_id"], :name => "status_ix"
-  add_index "accounts", ["type_id"], :name => "type_ix"
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20110302220336) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "preferences"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
