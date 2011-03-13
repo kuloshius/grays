@@ -1,27 +1,26 @@
 <table>
-<tr>
-<td>Reference</td>
-<td>Name</td>
-<td>Address</td>
-<td>Parent</td>
-<td>Credit Limit</td>
-<td>Payment Terms</td>
-<td>In Advance?</td>
-<td>Active?</td>
-
-</tr>
 <% object.each do |a| %>
-<tr>
-<td><%= a.reference %></td>
-<td><%= a.name %></td>
-<td><%= a.address %></td>
-<td><% if a.account_id.nil? %>N/A
-    <% else %> <%= link_to Account.find(a.account_id).name, account_path(a.account_id) %><% end %></td>
-<td><%= number_to_currency(a.credit_limit, :unit=> "£") %></td>
-<td><%= a.payment_delay %> days</td>
-<td><%= a.in_advance? ? "Yes" : "No" %></td>
-<td><%= a.active? ? "Yes" : "No" %></td>
-</tr>
-
+  <tr>
+    <td>
+      <p>
+        Account:<br/>
+        <%= a.reference %><br/>
+        <%= link_to "#{a.name}", account_path(a) %>
+      </p>
+    </td>
+    <td>
+      <%= render 'address', :object => a %>
+    </td>
+    <td>
+      <%= render 'contact', :object => a %>
+    </td>
+    <td>
+    <% if a.parent.nil? %>
+      <%= render 'credit_control', :object => a %>
+    <% else %>
+      <%= render 'credit_control', :object => a.parent %>
+    <% end %>
+    </td>
+  </tr>
 <% end %>
 </table>

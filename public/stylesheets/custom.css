@@ -78,3 +78,19 @@ body > div#framecontentTop, body > div#framecontentLeft, body > div#framecontent
   text-decoration: underline;
 }
 
+/* Account */
+
+.address {
+  width: 30%;
+  float: left;
+}
+
+.contact {
+  width: 30%;
+  float: left;
+}
+.credit_control {
+  width: 30%;
+  float: left;
+}
+

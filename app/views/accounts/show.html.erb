@@ -4,6 +4,9 @@
 </div>
 <%= render 'address', :object => @account %>
 <%= render 'contact', :object => @account %>
-<%= render 'credit_control', :object => @account %>
+<% if @account.parent.nil? %>
+  <%= render 'credit_control', :object => @account %>
+<% end %>
 <%= render 'list', :object => @children %>
+<%= render 'structure', :object => @account %>
 </div>
