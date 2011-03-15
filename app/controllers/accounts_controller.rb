@@ -22,6 +22,7 @@ class AccountsController < ApplicationController
   end
 
   def update
+    flash[:success] = params
     @account = Account.find(params[:id])
     @account.update_attributes(params[:account])
   end

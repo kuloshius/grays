@@ -6,6 +6,7 @@ gem 'jquery-rails', '>=0.2.6'
 gem 'acts_as_audited', '2.0.0.rc7'
 gem 'devise'
 gem 'cancan'
+gem 'faker', '0.3.1'
 #pagination?
 #search?
 
@@ -13,7 +14,6 @@ gem 'cancan'
 group :development do
   gem 'rspec-rails', '2.5.0'
   gem 'annotate-models', '1.0.4'
-  gem 'faker', '0.3.1'
   gem 'autotest', '4.4.6'
   gem 'autotest-rails-pure', '4.1.2'
 end

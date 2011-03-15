@@ -1,5 +1,6 @@
+<%= form_for(@account) do |f| %>
 <div class="name">
-<h1><%= @account.name %></h1>
+<h1><%= @account.name %><%= f.text_field :name %></h1>
 <p>Account reference: <%= @account.reference %></p>
 </div>
 <%= render 'address', :object => @account %>
@@ -9,4 +10,7 @@
 <% end %>
 <%= render 'list', :object => @children %>
 <%= render 'structure', :object => @account %>
+<%= link_to "edit", edit_account_path(@account) %>
+<%= f.submit %>
 </div>
+<% end %>
