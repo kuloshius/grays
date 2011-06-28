@@ -1,12 +1,16 @@
 Grays::Application.routes.draw do
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  root :to => "sessions#new"
+  resources :sessions
+  
+
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
 
-  root :to => 'pages#home'
 
 
-  devise_for :users
 
 #  match '/user' => 'users#index', :controller => :users
 

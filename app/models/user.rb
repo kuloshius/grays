@@ -1,35 +1,39 @@
 # == Schema Information
-# Schema version: 20110313131115
+# Schema version: 20110628184444
 #
 # Table name: users
 #
-#  id                   :integer(4)      not null, primary key
-#  email                :string(255)     default(""), not null
-#  encrypted_password   :string(128)     default(""), not null
-#  password_salt        :string(255)     default(""), not null
-#  reset_password_token :string(255)
-#  remember_token       :string(255)
-#  remember_created_at  :datetime
-#  sign_in_count        :integer(4)      default(0)
-#  current_sign_in_at   :datetime
-#  last_sign_in_at      :datetime
-#  current_sign_in_ip   :string(255)
-#  last_sign_in_ip      :string(255)
-#  confirmation_token   :string(255)
-#  confirmed_at         :datetime
-#  confirmation_sent_at :datetime
-#  created_at           :datetime
-#  updated_at           :datetime
-#  preferences          :string(255)
+#  id                 :integer(4)      not null, primary key
+#  email              :string(255)     default(""), not null
+#  encrypted_password :string(128)     default(""), not null
+#  password_salt      :string(255)     default(""), not null
+#  created_at         :datetime
+#  updated_at         :datetime
 #
 
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :lockable and :timeoutable
-  devise :database_authenticatable, :recoverable, :rememberable
+  attr_accessible :email, :password
+  
+  attr_accessor :password
+  before_save :encrypt_password
+  
+  validates_confirmation_of :password
+  validates_presence_of :password, :on => :create
+  validates_presence_of :email
+  validates_uniqueness_of :email
+  
+  def self.authenticate(email, password)
+    user = find_by_email(email)
+    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+      user
+    end
+  end
+  
+  def encrypt_password
+    if password.present?
+      self.password_salt = BCrypt::Engine.generate_salt
+      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+    end
+  end
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-
-  serialize :preferences
 end

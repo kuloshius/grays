@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110313144915
+# Schema version: 20110628184444
 #
 # Table name: accounts
 #
@@ -17,6 +17,9 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #  active        :boolean(1)
+#  phone         :string(255)
+#  email         :string(255)
+#  fax           :string(255)
 #
 
 class Account < ActiveRecord::Base

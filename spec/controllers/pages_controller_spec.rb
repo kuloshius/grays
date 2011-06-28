@@ -6,8 +6,6 @@ describe PagesController do
 
   describe "when logged in" do
 
-    login
-
     before(:each) do
       @base_title = "SLP | "
     end
