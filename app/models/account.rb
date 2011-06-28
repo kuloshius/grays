@@ -21,9 +21,8 @@
 
 class Account < ActiveRecord::Base
 
-  before_validation_on_create :update_defaults
+  before_validation :update_defaults, :on => :create
 
-  acts_as_audited
 
 #relationships
   has_many :children, :foreign_key => "account_id", :class_name => "Account"

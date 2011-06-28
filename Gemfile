@@ -1,28 +1,29 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
-gem 'mysql2'
-gem 'jquery-rails', '>=0.2.6'
-gem 'acts_as_audited', '2.0.0.rc7'
+gem 'rails'
+gem 'mysql2', '0.2.11'
+gem 'jquery-rails'
+gem 'acts_as_audited'
 gem 'devise'
-gem 'cancan'
-gem 'faker', '0.3.1'
+gem 'faker'
 #pagination?
 #search?
 
 
 group :development do
-  gem 'rspec-rails', '2.5.0'
-  gem 'annotate-models', '1.0.4'
-  gem 'autotest', '4.4.6'
-  gem 'autotest-rails-pure', '4.1.2'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'annotate-models'
+  gem 'autotest'
+  gem 'autotest-rails-pure'
 end
 
 group :test do
-  gem 'rspec', '2.5.0'
-  gem 'webrat', '0.7.1'
-  gem 'factory_girl_rails', '1.0'
-  gem 'spork', '~> 0.9.0.rc'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'webrat'
+  gem 'factory_girl_rails'
+  gem 'spork'
 end
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
