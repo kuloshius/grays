@@ -8,10 +8,5 @@ module Grays
   class Application < Rails::Application
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
-    if Rails.env.test? 
-      initializer :after => :initialize_dependency_mechanism do 
-        ActiveSupport::Dependencies.mechanism = :load 
-      end 
-    end 
   end
 end

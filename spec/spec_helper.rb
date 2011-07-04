@@ -16,10 +16,19 @@ Spork.prefork do
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.use_transactional_fixtures = true
     # Needed for Spork 
-    ActiveSupport::Dependencies.clear 
+    ActiveSupport::Dependencies.clear
+    
+    def test_sign_in(user)
+      User.authenticate(user.email, user.password)
+      session[:user_id] = user.id
+    end
+    
   end
 end
+
 Spork.each_run do
-  load "#{Rails.root}/config/routes.rb" 
-  Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f } 
+
+  load "#{Rails.root}/config/routes.rb"
+  Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
+  
 end

@@ -11,5 +11,5 @@ module ApplicationHelper
   def app_name
     "SLP"
   end
-
+  
 end

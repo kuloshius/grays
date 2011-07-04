@@ -1,13 +1,12 @@
 Grays::Application.routes.draw do
+  get "users/show"
+
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   root :to => "sessions#new"
-  resources :sessions
-  
-
-  match '/contact', :to => 'pages#contact'
-  match '/about',   :to => 'pages#about'
-  match '/help',    :to => 'pages#help'
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :users, :only => [:show]
+   
 
 
 
